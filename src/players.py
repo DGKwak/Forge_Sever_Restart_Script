@@ -1,7 +1,6 @@
-import os
-
+# Make player list
 if __name__ == "__main__":
-    file = '/path to grep_result.txt'
+    file = '/path/to/grep_result.txt'
     
     with open(file, 'r') as f:
         lines = f.readlines()
@@ -13,8 +12,8 @@ if __name__ == "__main__":
     
     playes = line[-1].split(', ')
     print(playes)
-    
-    with open('players.txt', 'w') as f:
+
+    with open('/path/to/players.txt', 'w') as f:
         for player in playes:
             f.write(player + '\n')
     f.close()

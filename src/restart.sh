@@ -1,19 +1,22 @@
-#!/bin/sh
+#!/bin/bash
 
+# Kick all players before shutdown
 while IFS= read -r line
 do
     current_time=$(date +'%Y-%m-%d %H:%M:%S')
     screen -S server -X stuff "kick $line"
     screen -S server -X eval "stuff \015"
     echo "Current time: $current_time"
-done < "/path to players.txt"
+done < "/path/to/players.txt"
 
+# Stop server
 current_time=$(date +'%Y-%m-%d %H:%M:%S')
 screen -S server -X stuff "stop"
 screen -S server -X eval "stuff \015"
 echo "Current time: $current_time"
 sleep 1m
 
+# Start server
 current_time=$(date +'%Y-%m-%d %H:%M:%S')
 screen -S server -X stuff "sh /path/to/run.sh"
 screen -S server -X eval "stuff \015"
